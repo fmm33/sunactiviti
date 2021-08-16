@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>查看流程图</title>
+    <link rel="stylesheet" href="../lib/layui-v2.5.5/css/layui.css" media="all">
+    <style>
+        .layui-timeline-title {
+            color: #FF7500;
+        }
+    </style>
+</head>
+<body>
+<img id="flow-image">
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+    <legend>审批流程：审批详情</legend>
+</fieldset>
+<ul class="layui-timeline" th:each="log:${logList}">
+    <li class="layui-timeline-item">
+        <i class="layui-icon layui-timeline-axis"></i>
+        <div class="layui-timeline-content layui-text">
+            <div class="layui-timeline-title" th:text="|${#dates.format(log.createTime,'yyyy-MM-dd hh:ss:mm')}&nbsp;&nbsp;${log.operValue}|"></div>
+        </div>
+    </li>
+</ul>
+<script>
+    function requestParameter(){
+        var url = window.location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+                theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+
+    var flowId = requestParameter()["flowId"];
+    document.getElementById("flow-image").src = "/model/queryFlowImg?flowId=" + flowId;
+</script>
+<script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+</body>
+</html>
