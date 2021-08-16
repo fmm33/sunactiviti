@@ -1,7 +1,4 @@
 # sunny-activiti
- **个人博客项目：[https://gitee.com/sunny1009/sunny-blog](https://gitee.com/sunny1009/sunny-blog)** 
-#### 资料获取:扫码进群群文件下载，保证远程协助项目运行
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0413/194249_be52e2d3_806588.png "屏幕截图.png")
 #### 介绍
 1.  sunny-activiti是一个SpringBoot集成activiti实现在创建、部署流程、复制流程、删除流程以及流程规则配置，实现请假流程工作流流转和业务处理，感兴趣可以Watch、Start持续关注项目最新状态
 2.  **本项目只实现activit流程相关的业务与权限相关的用户角色菜单管理未做实现**
